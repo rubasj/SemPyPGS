@@ -1,0 +1,480 @@
+
+# Input file analysis
+# Count of resources: 118
+# Count of blocks: 264
+########### LEGEND ###########
+# For workers
+#	 <runtime>;<workername>;<action>;<time for action>
+# For lorries
+#	 <runtime>;<lorryname>;<action>;<time for action>
+# For ferry
+#<runtime>;<Ferry>;<action>;<time for filling>
+0,09;Worker[3];block mined;0,02
+0,12;Worker[5];block mined;0,05
+0,09;Worker[2];block mined;0,03
+0,09;Worker[4];block mined;0,02
+0,13;Worker[2];resource mined;0,07
+0,13;Worker[5];resource mined;0,07
+0,13;Worker[3];resource mined;0,07
+0,08;Worker[1];block mined;0,02
+0,13;Worker[4];resource mined;0,07
+0,15;Worker[1];block mined;0,02
+0,16;Worker[1];block mined;0,01
+0,16;Worker[1];resource mined;0,10
+0,18;Worker[5];block mined;0,01
+0,18;Worker[5];resource mined;0,01
+0,18;Worker[3];block mined;0,01
+0,18;Worker[3];resource mined;0,01
+0,19;Worker[2];block mined;0,04
+0,19;Worker[2];resource mined;0,04
+0,21;Worker[5];block mined;0,00
+0,22;Worker[4];block mined;0,04
+0,22;Worker[4];resource mined;0,04
+0,24;Worker[3];block mined;0,04
+0,24;Worker[5];block mined;0,03
+0,25;Lorry[1];is full;0,17
+0,26;Lorry[1];arrived to ferry;0,01
+0,26;Worker[3];block mined;0,03
+0,26;Worker[1];block mined;0,01
+0,28;Worker[1];block mined;0,02
+0,28;Worker[2];block mined;0,04
+0,28;Worker[4];block mined;0,02
+0,28;Worker[1];block mined;0,00
+0,28;Worker[1];resource mined;0,03
+0,29;Worker[5];block mined;0,05
+0,30;Worker[3];block mined;0,04
+0,30;Worker[3];resource mined;0,10
+0,32;Worker[4];block mined;0,04
+0,32;Worker[2];block mined;0,04
+0,32;Worker[2];resource mined;0,08
+0,33;Worker[4];block mined;0,01
+0,33;Worker[4];resource mined;0,06
+0,33;Worker[5];block mined;0,04
+0,36;Worker[5];block mined;0,03
+0,36;Worker[5];block mined;0,00
+0,36;Worker[5];resource mined;0,15
+0,36;Worker[4];block mined;0,00
+0,36;Worker[4];resource mined;0,00
+0,36;Worker[1];block mined;0,05
+0,36;Worker[1];resource mined;0,05
+0,40;Lorry[2];is full;0,14
+0,40;Lorry[2];arrived to ferry;0,01
+0,43;Worker[4];block mined;0,02
+0,45;Worker[1];block mined;0,05
+0,45;Worker[1];resource mined;0,05
+0,45;Worker[2];block mined;0,02
+0,47;Worker[4];block mined;0,05
+0,47;Worker[2];block mined;0,03
+0,47;Worker[2];resource mined;0,04
+0,50;Worker[3];block mined;0,04
+0,50;Worker[4];block mined;0,03
+0,50;Worker[4];resource mined;0,10
+0,50;Lorry[3];is full;0,11
+0,51;Lorry[3];arrived to ferry;0,00
+0,51;Worker[5];block mined;0,01
+0,51;Worker[5];resource mined;0,01
+0,53;Worker[1];block mined;0,01
+0,53;Worker[1];resource mined;0,01
+0,53;Worker[3];block mined;0,03
+0,53;Worker[3];resource mined;0,07
+0,59;Worker[5];block mined;0,03
+0,60;Worker[4];block mined;0,05
+0,61;Worker[1];block mined;0,00
+0,62;Lorry[4];is full;0,12
+0,62;Lorry[4];arrived to ferry;0,00
+0,63;Worker[5];block mined;0,04
+0,62;Ferry;went out;0,53
+0,63;Lorry[3];arrived to END;0,00
+0,63;Lorry[2];arrived to END;0,00
+0,64;Worker[2];block mined;0,05
+0,64;Worker[2];resource mined;0,05
+0,64;Lorry[1];arrived to END;0,01
+0,64;Lorry[4];arrived to END;0,01
+0,64;Worker[4];block mined;0,04
+0,65;Worker[3];block mined;0,03
+0,65;Worker[1];block mined;0,04
+0,65;Worker[2];block mined;0,01
+0,65;Worker[3];resource mined;0,03
+0,65;Worker[1];resource mined;0,05
+0,66;Worker[5];block mined;0,03
+0,66;Worker[5];resource mined;0,10
+0,67;Worker[4];block mined;0,03
+0,68;Worker[4];resource mined;0,13
+0,68;Worker[2];block mined;0,03
+0,68;Worker[3];block mined;0,01
+0,71;Worker[5];block mined;0,01
+0,71;Worker[3];block mined;0,03
+0,72;Worker[2];block mined;0,04
+0,72;Worker[5];block mined;0,01
+0,72;Worker[5];resource mined;0,02
+0,73;Worker[2];block mined;0,01
+0,74;Worker[2];block mined;0,01
+0,75;Worker[1];block mined;0,02
+0,75;Worker[1];resource mined;0,02
+0,75;Lorry[5];is full;0,14
+0,76;Worker[3];block mined;0,05
+0,76;Worker[3];resource mined;0,09
+0,76;Lorry[5];arrived to ferry;0,01
+0,77;Worker[2];block mined;0,03
+0,79;Worker[5];block mined;0,04
+0,79;Worker[5];resource mined;0,04
+0,81;Worker[2];block mined;0,04
+0,81;Worker[4];block mined;0,03
+0,81;Worker[4];resource mined;0,03
+0,84;Worker[2];block mined;0,03
+0,84;Worker[4];block mined;0,01
+0,84;Worker[4];resource mined;0,01
+0,84;Worker[3];block mined;0,03
+0,84;Worker[3];resource mined;0,04
+0,85;Worker[2];block mined;0,01
+0,86;Worker[4];block mined;0,01
+0,86;Worker[4];resource mined;0,01
+0,86;Lorry[6];is full;0,11
+0,87;Worker[1];block mined;0,05
+0,87;Worker[1];resource mined;0,05
+0,87;Lorry[6];arrived to ferry;0,00
+0,87;Worker[2];block mined;0,02
+0,87;Worker[5];block mined;0,03
+0,88;Worker[3];block mined;0,02
+0,88;Worker[3];resource mined;0,02
+0,88;Worker[5];block mined;0,01
+0,88;Worker[2];block mined;0,01
+0,89;Worker[2];block mined;0,01
+0,91;Worker[1];block mined;0,02
+0,91;Worker[1];resource mined;0,02
+0,91;Worker[4];block mined;0,04
+0,91;Worker[4];resource mined;0,04
+0,92;Worker[2];block mined;0,03
+0,93;Worker[2];block mined;0,01
+0,93;Worker[5];block mined;0,05
+0,93;Worker[5];resource mined;0,09
+0,94;Worker[3];block mined;0,05
+0,94;Worker[3];resource mined;0,05
+0,97;Worker[1];block mined;0,05
+0,97;Worker[1];resource mined;0,05
+0,97;Worker[4];block mined;0,04
+0,97;Worker[4];resource mined;0,04
+0,98;Worker[5];block mined;0,01
+0,98;Worker[2];block mined;0,05
+0,98;Worker[5];resource mined;0,01
+0,98;Lorry[7];is full;0,12
+0,99;Lorry[7];arrived to ferry;0,00
+0,99;Worker[3];block mined;0,02
+1,00;Worker[2];block mined;0,02
+1,00;Worker[1];block mined;0,01
+1,01;Worker[2];block mined;0,01
+1,01;Worker[4];block mined;0,02
+1,01;Worker[1];block mined;0,01
+1,01;Worker[1];resource mined;0,02
+1,01;Worker[5];block mined;0,01
+1,03;Worker[3];block mined;0,03
+1,03;Worker[4];block mined;0,02
+1,04;Worker[4];block mined;0,01
+1,05;Worker[5];block mined;0,04
+1,05;Worker[4];block mined;0,01
+1,05;Worker[2];block mined;0,05
+1,06;Worker[1];block mined;0,02
+1,06;Worker[3];block mined;0,03
+1,06;Worker[3];resource mined;0,08
+1,07;Worker[5];block mined;0,02
+1,07;Worker[5];resource mined;0,06
+1,07;Worker[4];block mined;0,02
+1,08;Worker[4];block mined;0,00
+1,08;Worker[4];resource mined;0,09
+1,09;Worker[2];block mined;0,04
+1,10;Worker[1];block mined;0,05
+1,11;Worker[2];block mined;0,01
+1,11;Worker[2];resource mined;0,46
+1,12;Lorry[8];is full;0,14
+1,12;Lorry[8];arrived to ferry;0,00
+1,12;Ferry;went out;0,49
+1,13;Lorry[8];arrived to END;0,00
+1,13;Lorry[7];arrived to END;0,01
+1,13;Lorry[6];arrived to END;0,01
+1,13;Worker[3];block mined;0,04
+1,13;Worker[3];resource mined;0,04
+1,13;Lorry[5];arrived to END;0,01
+1,13;Worker[1];block mined;0,03
+1,13;Worker[1];resource mined;0,10
+1,21;Worker[5];block mined;0,03
+1,22;Worker[5];resource mined;0,03
+1,24;Worker[4];block mined;0,01
+1,24;Worker[4];resource mined;0,01
+1,26;Worker[3];block mined;0,02
+1,28;Lorry[9];is full;0,16
+1,29;Worker[3];block mined;0,02
+1,30;Worker[4];block mined;0,02
+1,30;Lorry[9];arrived to ferry;0,01
+1,31;Worker[3];block mined;0,03
+1,31;Worker[3];resource mined;0,07
+1,32;Worker[5];block mined;0,01
+1,33;Worker[4];block mined;0,03
+1,33;Worker[4];resource mined;0,04
+1,36;Worker[1];block mined;0,02
+1,36;Worker[1];resource mined;0,02
+1,36;Worker[5];block mined;0,04
+1,36;Worker[5];resource mined;0,05
+1,40;Worker[4];block mined;0,04
+1,40;Worker[4];resource mined;0,04
+1,41;Lorry[10];is full;0,12
+1,42;Lorry[10];arrived to ferry;0,01
+1,42;Worker[3];block mined;0,01
+1,45;Worker[3];block mined;0,03
+1,45;Worker[1];block mined;0,01
+1,46;Worker[1];block mined;0,01
+1,47;Worker[1];block mined;0,01
+1,47;Worker[1];resource mined;0,03
+1,47;Worker[3];block mined;0,03
+1,47;Worker[3];resource mined;0,07
+1,48;Worker[4];block mined;0,03
+1,48;Worker[4];resource mined;0,03
+1,52;Worker[5];block mined;0,01
+1,53;Worker[5];block mined;0,01
+1,53;Worker[5];resource mined;0,02
+1,54;Lorry[11];is full;0,13
+1,54;Lorry[11];arrived to ferry;0,00
+1,59;Worker[1];block mined;0,04
+1,59;Worker[1];resource mined;0,04
+1,61;Worker[5];block mined;0,01
+1,65;Worker[1];block mined;0,00
+1,65;Worker[5];block mined;0,04
+1,66;Worker[4];block mined;0,04
+1,66;Worker[5];block mined;0,01
+1,67;Lorry[12];is full;0,13
+1,67;Worker[3];block mined;0,01
+1,67;Worker[3];resource mined;0,01
+1,67;Lorry[12];arrived to ferry;0,01
+1,67;Ferry;went out;0,55
+1,67;Lorry[10];arrived to END;0,00
+1,68;Worker[1];block mined;0,03
+1,68;Lorry[12];arrived to END;0,01
+1,68;Worker[1];resource mined;0,04
+1,68;Lorry[11];arrived to END;0,01
+1,68;Lorry[9];arrived to END;0,01
+1,69;Worker[5];block mined;0,03
+1,69;Worker[4];block mined;0,04
+1,71;Worker[5];block mined;0,02
+1,72;Worker[5];block mined;0,01
+1,74;Worker[4];block mined;0,05
+1,74;Worker[4];resource mined;0,12
+1,76;Worker[5];block mined;0,04
+1,77;Lorry[13];is full;0,11
+1,77;Lorry[13];arrived to ferry;0,00
+1,78;Worker[3];block mined;0,02
+1,78;Worker[3];resource mined;0,02
+1,80;Worker[5];block mined;0,03
+1,80;Worker[5];block mined;0,01
+1,83;Worker[4];block mined;0,04
+1,83;Worker[4];resource mined;0,04
+1,83;Worker[5];block mined;0,03
+1,83;Worker[1];block mined;0,03
+1,83;Worker[1];resource mined;0,03
+1,84;Worker[3];block mined;0,02
+1,85;Worker[3];block mined;0,01
+1,85;Worker[3];resource mined;0,04
+1,86;Worker[1];block mined;0,00
+1,86;Worker[1];resource mined;0,00
+1,87;Worker[5];block mined;0,04
+1,88;Lorry[14];is full;0,11
+1,88;Lorry[14];arrived to ferry;0,00
+1,89;Worker[4];block mined;0,05
+1,90;Worker[5];block mined;0,04
+1,91;Worker[3];block mined;0,03
+1,91;Worker[3];resource mined;0,03
+1,92;Worker[4];block mined;0,02
+1,92;Worker[5];block mined;0,02
+1,93;Worker[2];block mined;0,02
+1,93;Worker[2];resource mined;0,02
+1,93;Worker[3];block mined;0,01
+1,93;Worker[3];resource mined;0,01
+1,93;Worker[5];block mined;0,01
+1,95;Worker[1];block mined;0,05
+1,95;Worker[1];resource mined;0,05
+1,95;Worker[4];block mined;0,04
+1,95;Worker[4];resource mined;0,11
+1,96;Worker[5];block mined;0,03
+1,97;Worker[2];block mined;0,03
+1,97;Worker[2];resource mined;0,03
+1,99;Worker[5];block mined;0,02
+1,99;Worker[3];block mined;0,04
+1,99;Worker[3];resource mined;0,04
+1,99;Lorry[15];is full;0,12
+2,00;Lorry[15];arrived to ferry;0,01
+2,01;Worker[4];block mined;0,01
+2,01;Worker[2];block mined;0,00
+2,01;Worker[1];block mined;0,05
+2,01;Worker[1];resource mined;0,05
+2,03;Worker[4];block mined;0,02
+2,03;Worker[5];block mined;0,05
+2,05;Worker[2];block mined;0,04
+2,05;Worker[3];block mined;0,04
+2,06;Worker[1];block mined;0,04
+2,06;Worker[5];block mined;0,03
+2,07;Worker[4];block mined;0,05
+2,07;Worker[4];resource mined;0,08
+2,07;Worker[5];block mined;0,01
+2,09;Worker[3];block mined;0,03
+2,09;Worker[3];resource mined;0,07
+2,09;Worker[5];block mined;0,02
+2,09;Worker[5];resource mined;0,50
+2,09;Worker[2];block mined;0,04
+2,11;Worker[1];block mined;0,04
+2,12;Worker[4];block mined;0,02
+2,13;Worker[4];block mined;0,00
+2,14;Worker[1];block mined;0,03
+2,14;Worker[1];resource mined;0,11
+2,14;Worker[2];block mined;0,05
+2,15;Worker[4];block mined;0,02
+2,15;Worker[4];resource mined;0,04
+2,15;Lorry[16];is full;0,16
+2,15;Lorry[16];arrived to ferry;0,00
+2,15;Ferry;went out;0,48
+2,15;Lorry[14];arrived to END;0,00
+2,15;Lorry[15];arrived to END;0,00
+2,16;Lorry[13];arrived to END;0,01
+2,16;Lorry[16];arrived to END;0,01
+2,16;Worker[2];block mined;0,02
+2,18;Worker[2];block mined;0,01
+2,18;Worker[2];resource mined;0,17
+2,19;Worker[3];block mined;0,04
+2,19;Worker[3];resource mined;0,04
+2,21;Worker[1];block mined;0,03
+2,21;Worker[1];resource mined;0,03
+2,29;Lorry[17];is full;0,14
+2,29;Lorry[17];arrived to ferry;0,01
+2,31;Worker[3];block mined;0,05
+2,31;Worker[3];resource mined;0,05
+2,33;Worker[4];block mined;0,05
+2,34;Worker[1];block mined;0,03
+2,37;Worker[1];block mined;0,03
+2,37;Worker[1];resource mined;0,06
+2,37;Worker[4];block mined;0,04
+2,39;Worker[4];block mined;0,02
+2,39;Worker[4];resource mined;0,10
+2,39;Lorry[18];is full;0,11
+2,40;Worker[2];block mined;0,04
+2,40;Lorry[18];arrived to ferry;0,01
+2,43;Worker[2];block mined;0,03
+2,43;Worker[2];resource mined;0,07
+2,55;Lorry[19];is full;0,16
+2,56;Lorry[19];arrived to ferry;0,00
+2,59;Worker[3];block mined;0,03
+2,59;Worker[3];resource mined;0,03
+2,60;Worker[4];block mined;0,01
+2,60;Worker[4];resource mined;0,01
+2,65;Worker[5];block mined;0,02
+2,67;Worker[5];block mined;0,02
+2,67;Lorry[20];is full;0,12
+2,67;Worker[1];block mined;0,02
+2,67;Lorry[20];arrived to ferry;0,00
+2,67;Ferry;went out;0,52
+2,67;Lorry[20];arrived to END;0,00
+2,68;Lorry[18];arrived to END;0,00
+2,68;Lorry[17];arrived to END;0,01
+2,68;Worker[2];block mined;0,01
+2,68;Worker[2];resource mined;0,01
+2,68;Lorry[19];arrived to END;0,01
+2,69;Worker[4];block mined;0,01
+2,70;Worker[5];block mined;0,04
+2,70;Worker[5];resource mined;0,08
+2,70;Worker[2];block mined;0,00
+2,70;Worker[2];block mined;0,00
+2,71;Worker[3];block mined;0,02
+2,71;Worker[3];resource mined;0,02
+2,71;Worker[2];block mined;0,01
+2,71;Worker[1];block mined;0,04
+2,72;Worker[4];block mined;0,04
+2,72;Worker[4];resource mined;0,04
+2,73;Worker[2];block mined;0,03
+2,75;Worker[3];block mined;0,01
+2,76;Worker[1];block mined;0,05
+2,76;Worker[1];resource mined;0,11
+2,77;Worker[5];block mined;0,03
+2,78;Lorry[21];is full;0,11
+2,78;Lorry[21];arrived to ferry;0,00
+2,78;Worker[3];block mined;0,03
+2,78;Worker[3];resource mined;0,04
+2,78;Worker[2];block mined;0,05
+2,79;Worker[5];block mined;0,03
+2,80;Worker[4];block mined;0,03
+2,80;Worker[1];block mined;0,01
+2,80;Worker[2];block mined;0,02
+2,80;Worker[2];block mined;0,00
+2,82;Worker[4];block mined;0,02
+2,82;Worker[1];block mined;0,02
+2,82;Worker[1];resource mined;0,02
+2,83;Worker[5];block mined;0,04
+2,83;Worker[5];resource mined;0,10
+2,83;Worker[2];block mined;0,03
+2,83;Worker[4];block mined;0,02
+2,84;Worker[2];block mined;0,01
+2,84;Worker[2];block mined;0,01
+2,85;Worker[1];block mined;0,01
+2,85;Worker[1];resource mined;0,01
+2,86;Worker[2];block mined;0,01
+2,86;Worker[3];block mined;0,04
+2,86;Worker[3];resource mined;0,04
+2,87;Worker[4];block mined;0,04
+2,89;Worker[2];block mined;0,03
+2,89;Lorry[22];is full;0,11
+2,89;Worker[2];block mined;0,00
+2,89;Worker[3];block mined;0,00
+2,89;Worker[3];resource mined;0,00
+2,89;Worker[5];block mined;0,02
+2,89;Worker[5];resource mined;0,02
+2,89;Lorry[22];arrived to ferry;0,01
+2,92;Worker[4];block mined;0,05
+2,93;Worker[2];block mined;0,04
+2,94;Worker[3];block mined;0,02
+2,94;Worker[3];resource mined;0,02
+2,94;Worker[5];block mined;0,03
+2,94;Worker[5];resource mined;0,03
+2,94;Worker[1];block mined;0,04
+2,94;Worker[1];resource mined;0,04
+2,95;Worker[4];block mined;0,03
+2,96;Worker[4];block mined;0,01
+2,96;Worker[4];resource mined;0,19
+2,97;Worker[3];block mined;0,02
+2,98;Worker[2];block mined;0,05
+2,98;Worker[1];block mined;0,03
+2,98;Worker[1];block mined;0,00
+3,00;Worker[2];block mined;0,02
+3,00;Worker[2];resource mined;0,30
+3,00;Worker[1];block mined;0,02
+3,00;Worker[1];resource mined;0,04
+3,01;Worker[3];block mined;0,04
+3,01;Worker[3];resource mined;0,06
+3,01;Lorry[23];is full;0,12
+3,01;Worker[5];block mined;0,05
+3,01;Worker[5];resource mined;0,05
+3,02;Lorry[23];arrived to ferry;0,01
+3,10;Worker[1];block mined;0,02
+3,10;Worker[1];resource mined;0,02
+3,10;Worker[4];block mined;0,00
+3,12;Worker[4];block mined;0,02
+3,12;Worker[4];resource mined;0,03
+3,12;Worker[5];block mined;0,02
+3,13;Worker[5];block mined;0,00
+3,13;Worker[5];resource mined;0,02
+3,15;Lorry[24];is full;0,14
+3,15;Lorry[24];arrived to ferry;0,00
+3,15;Ferry;went out;0,48
+3,16;Lorry[24];arrived to END;0,01
+3,16;Lorry[21];arrived to END;0,01
+3,16;Lorry[23];arrived to END;0,01
+3,16;Lorry[22];arrived to END;0,01
+3,17;Worker[3];block mined;0,03
+3,18;Worker[3];block mined;0,02
+3,18;Worker[5];block mined;0,00
+3,18;Worker[5];resource mined;0,00
+3,19;Worker[3];block mined;0,01
+3,19;Worker[3];resource mined;0,06
+3,30;Lorry[25];is full;0,15
+3,31;Lorry[25];arrived to ferry;0,01
+3,49;Lorry[26];is full;0,19
+3,50;Lorry[26];arrived to ferry;0,01
+3,58;Lorry[27];arrived to ferry;0,01
+3,58;Ferry;went out;0,42
+3,58;Lorry[26];arrived to END;0,00
+3,58;Lorry[25];arrived to END;0,01
+3,58;Lorry[27];arrived to END;0,01
