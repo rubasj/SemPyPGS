@@ -123,19 +123,23 @@ def generate_stats_worker():
 class Lorry:
     def __init__(self, id):
         self._id = id
-        self._time_filling = 0.0
-        self._duration_time = ferry_average_time
+        self._load_time = 0.0
+        self._transport_time = ferry_average_time
 
-    @property
     def get_id(self):
         return self._id
 
-    def set_time_filling(self, time):
-        self._time_filling += time
+    def set_load_time(self, time):
+        self._load_time += time
 
-    def set_duration_time(self, time):
-        self._time_filling += time
+    def set_transport_time(self, time):
+        self._transport_time += time
 
+    def get_load_time(self):
+        return self._load_time
+
+    def get_transport_time(self):
+        return self._transport_time
 
 def generate_stats_lorry():
     for data in lorry_data:
@@ -150,12 +154,12 @@ def generate_stats_lorry():
         if is_full.__eq__(data[2]):
             timeStr = data[3].replace(",", ".")
             time = float(timeStr)
-            lorry_instances[idx].set_time_filling(time)
+            lorry_instances[idx].set_load_time(time)
 
         elif arrived_to_end.__eq__(data[2]) or arrived_to_ferry.__eq__(data[2]):
             timeStr = data[3].replace(",", ".")
             time = float(timeStr)
-            lorry_instances[idx].set_duration_time(time)
+            lorry_instances[idx].set_transport_time(time)
 
 
 # --------------------------------- ------------------------ ------------------------------------ ##
@@ -282,7 +286,17 @@ def generate_xml():
         vehicles.appendChild(root.createTextNode(""))
         lorry = root.createElement('Vehicle')
         lorry.setAttribute('vehicle', str(lor.get_id()))
-        vehicles.appendChild(lor)
+
+        loadTime = root.createElement('loadTime')
+        loadTime.appendChild(root.createTextNode(str(lor.get_load_time())))
+        lorry.appendChild(loadTime)
+
+        transportTime = root.createElement('transportTime')
+        transportTime.appendChild(root.createTextNode(str(lor.get_transport_time())))
+        lorry.appendChild(transportTime)
+        vehicles.appendChild(lorry)
+
+
 
     vehicles.appendChild(root.createTextNode(""))
     simulation.appendChild(vehicles)
