@@ -1,4 +1,5 @@
 import sys
+from Workers import Worker
 from xml.dom import minidom
 
 # ******* DATA FOR STATS ****** #
@@ -42,7 +43,7 @@ arrived_to_end = "arrived to END"
 
 # -------------------------------------------- #
 # list (dictionary) of lorry objects
-lorry_objects = {}
+lorry_instances = {}
 
 # list of lorry data
 lorry_data = []
@@ -65,33 +66,6 @@ worker_data = []
 # -------------------------------------------- #
 
 # --------------------------------- WORKER - generating stats ------------------------------------ ##
-# class witch represented Worker
-class Worker:
-    def __init__(self, id):
-        # index worker
-        self.__id = id
-        # worker's total worked time
-        self.__total_worked_time = 0.0
-        # worker's total processed blocks
-        self.__total_blocks = 0
-
-    def get_id(self):
-        return self.__id
-
-    def set_total_blocks(self):
-        self.__total_blocks += 1
-
-    def set_total_worked_time(self, time):
-        self.__total_worked_time += time
-
-    @property
-    def get_total_worked_time(self):
-        return self.__total_worked_time
-
-    @property
-    def get_total_blocks(self):
-        return self.__total_blocks
-
 
 # load worker instances
 def generate_stats_worker():
@@ -148,19 +122,19 @@ def generate_stats_worker():
 # class represented Lorry
 class Lorry:
     def __init__(self, id):
-        self.__id = id
-        self.__time_filling = 0.0
-        self.__duration_time = ferry_average_time
+        self._id = id
+        self._time_filling = 0.0
+        self._duration_time = ferry_average_time
 
     @property
     def get_id(self):
-        return self.__id
+        return self._id
 
     def set_time_filling(self, time):
-        self.__time_filling += time
+        self._time_filling += time
 
     def set_duration_time(self, time):
-        self.__time_filling += time
+        self._time_filling += time
 
 
 def generate_stats_lorry():
@@ -170,18 +144,18 @@ def generate_stats_lorry():
         idx = int(tmp2[0])
 
         # The item with ID does not exist => creating new
-        if idx not in lorry_objects:
-            lorry_objects[idx] = Lorry(idx)
+        if idx not in lorry_instances:
+            lorry_instances[idx] = Lorry(idx)
 
         if is_full.__eq__(data[2]):
             timeStr = data[3].replace(",", ".")
             time = float(timeStr)
-            lorry_objects[idx].set_time_filling(time)
+            lorry_instances[idx].set_time_filling(time)
 
         elif arrived_to_end.__eq__(data[2]) or arrived_to_ferry.__eq__(data[2]):
             timeStr = data[3].replace(",", ".")
             time = float(timeStr)
-            lorry_objects[idx].set_duration_time(time)
+            lorry_instances[idx].set_duration_time(time)
 
 
 # --------------------------------- ------------------------ ------------------------------------ ##
@@ -269,7 +243,7 @@ def generate_xml():
     resourceAverageDuration = root.createElement('resourceAverageDuration')
     resourceAverageDuration.setAttribute('totalCount', str(count_processed_resources))
     resourceAverageDuration.appendChild(root.createTextNode(str("{:.2f}".format(count_processed_resources))))
-
+    # TODO osetrit chybu (resources)
 
     # ferryAverageWait -> is simulation child
     ferryAverageWait = root.createElement('ferryAverageWait')
@@ -281,16 +255,37 @@ def generate_xml():
     workers = root.createElement("Workers")
     simulation.appendChild(root.createTextNode(""))
 
-    for w in worker_instances:
+    for n in range(0, len(worker_instances)):
+        w = worker_instances[n+1]
+
         workers.appendChild(root.createTextNode(""))
         wo = root.createElement("Worker")
-        # wo.setAttribute('id', str(w.get_id()))
+        idx = w.get_id()
+        wo.setAttribute('id', str(idx))
+        resources = root.createElement('resources')
+        resources.appendChild(root.createTextNode(str(w.get_total_blocks())))
 
+        wo.appendChild(resources)
+        workDuration = root.createElement('workDuration')
+        workDuration.appendChild(root.createTextNode(str("{:.2f}".format(w.get_total_worked_time()))))
+        wo.appendChild(workDuration)
         workers.appendChild(wo)
 
     workers.appendChild(root.createTextNode(""))
-
     simulation.appendChild(workers)
+    simulation.appendChild(root.createTextNode(""))
+
+    # vehicles
+    vehicles = root.createElement('Vehicles')
+    for n in range(len(lorry_instances)):
+        lor = lorry_instances[n+1]
+        vehicles.appendChild(root.createTextNode(""))
+        lorry = root.createElement('Vehicle')
+        lorry.setAttribute('vehicle', str(lor.get_id()))
+        vehicles.appendChild(lor)
+
+    vehicles.appendChild(root.createTextNode(""))
+    simulation.appendChild(vehicles)
     simulation.appendChild(root.createTextNode(""))
     xml_str = root.toprettyxml(indent="\t")
 
@@ -300,7 +295,7 @@ def generate_xml():
     f.close()
 
 
-# ----- ------------------------------ ----- ##
+# ------------------------------------------ ##
 
 #   Main program method
 if __name__ == '__main__':
