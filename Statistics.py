@@ -17,7 +17,7 @@ global count_processed_resources
 
 # GH
 # average time for processing one resource
-global total_time_mined_blocks
+global average_resource_duration
 
 # IJ
 # count of ferry paths
@@ -72,8 +72,7 @@ def generate_stats_worker():
     # GLOBALS
     global count_processed_blocks
     global count_processed_resources
-    global total_time_mined_blocks
-    global total_time_mined_resources
+    global average_resource_duration
     global average_block_duration
 
     # temps for set globals
@@ -114,33 +113,44 @@ def generate_stats_worker():
 
     # storing values in global variables
     average_block_duration = total_time_mined_blocks / count_processed_blocks
-
+    average_resource_duration = total_time_mined_resources / count_processed_resources
 
 # --------------------------------- ------------------------ ------------------------------------ ##
 
 # --------------------------------- LORRY - generating stats ------------------------------------ ##
 # class represented Lorry
 class Lorry:
+    # class constructor
     def __init__(self, id):
+        # index lorry
         self._id = id
+        # time for loading
         self._load_time = 0.0
+        # time for transport
         self._transport_time = ferry_average_time
 
+    # getter method for ID
     def get_id(self):
         return self._id
 
+    # setter load time
     def set_load_time(self, time):
         self._load_time += time
 
+    # setter transport time
     def set_transport_time(self, time):
         self._transport_time += time
 
+    # getter load time
     def get_load_time(self):
         return self._load_time
 
+    # getter transport time
     def get_transport_time(self):
         return self._transport_time
 
+
+# generating lorry stats
 def generate_stats_lorry():
     for data in lorry_data:
         tmp1 = data[1].split('[')
@@ -151,6 +161,7 @@ def generate_stats_lorry():
         if idx not in lorry_instances:
             lorry_instances[idx] = Lorry(idx)
 
+        # comparing data (activities)
         if is_full.__eq__(data[2]):
             timeStr = data[3].replace(",", ".")
             time = float(timeStr)
@@ -238,16 +249,16 @@ def generate_xml():
 
     # blockAverageDuration -> is simulation child
     blockAverageDuration = root.createElement('blockAverageDuration')
-    textAverage = root.createTextNode(str("{:.2f}".format(average_block_duration)))
+    textAverage = root.createTextNode(str("{:.2f}".format(average_resource_duration)))
     blockAverageDuration.appendChild(textAverage)
-    blockAverageDuration.setAttribute('totalCount', str(count_processed_blocks))
+    blockAverageDuration.setAttribute('totalCount', str(count_processed_resources))
     simulation.appendChild(blockAverageDuration)
 
     # resourceAverageDuration -> is simulation child
     resourceAverageDuration = root.createElement('resourceAverageDuration')
-    resourceAverageDuration.setAttribute('totalCount', str(count_processed_resources))
-    resourceAverageDuration.appendChild(root.createTextNode(str("{:.2f}".format(count_processed_resources))))
-    # TODO osetrit chybu (resources)
+    resourceAverageDuration.setAttribute('totalCount', str(count_processed_blocks))
+    resourceAverageDuration.appendChild(root.createTextNode(str("{:.2f}".format(average_block_duration))))
+    simulation.appendChild(resourceAverageDuration)
 
     # ferryAverageWait -> is simulation child
     ferryAverageWait = root.createElement('ferryAverageWait')
@@ -255,17 +266,22 @@ def generate_xml():
     ferryAverageWait.appendChild(root.createTextNode(str("{:.2f}".format(ferry_average_time))))
     simulation.appendChild(ferryAverageWait)
 
-    # workers
+    # part from generating workers record
     workers = root.createElement("Workers")
     simulation.appendChild(root.createTextNode(""))
 
     for n in range(0, len(worker_instances)):
+        # get current instance from list
         w = worker_instances[n+1]
 
+        # add space
         workers.appendChild(root.createTextNode(""))
+        # element for worker
         wo = root.createElement("Worker")
+        # ID attribute
         idx = w.get_id()
         wo.setAttribute('id', str(idx))
+        # element for resources
         resources = root.createElement('resources')
         resources.appendChild(root.createTextNode(str(w.get_total_blocks())))
 
@@ -282,27 +298,29 @@ def generate_xml():
     # vehicles
     vehicles = root.createElement('Vehicles')
     for n in range(len(lorry_instances)):
+        # get current instance from list
         lor = lorry_instances[n+1]
+
+        # add space
         vehicles.appendChild(root.createTextNode(""))
         lorry = root.createElement('Vehicle')
         lorry.setAttribute('vehicle', str(lor.get_id()))
-
+        # element for loadTime
         loadTime = root.createElement('loadTime')
-        loadTime.appendChild(root.createTextNode(str(lor.get_load_time())))
+        loadTime.appendChild(root.createTextNode(str("{:.2f}".format(lor.get_load_time()))))
         lorry.appendChild(loadTime)
-
+        # element for transportTime
         transportTime = root.createElement('transportTime')
-        transportTime.appendChild(root.createTextNode(str(lor.get_transport_time())))
+        transportTime.appendChild(root.createTextNode(str("{:.2f}".format(lor.get_transport_time()))))
         lorry.appendChild(transportTime)
         vehicles.appendChild(lorry)
-
-
 
     vehicles.appendChild(root.createTextNode(""))
     simulation.appendChild(vehicles)
     simulation.appendChild(root.createTextNode(""))
     xml_str = root.toprettyxml(indent="\t")
 
+    # write xml to file
     with open(sys.argv[4], "w") as f:
         f.write(xml_str)
 
